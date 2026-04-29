@@ -20,605 +20,138 @@
     --text-light: #6b6b8a;
     --rule: rgba(201,149,42,0.3);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'Source Serif 4', Georgia, serif; background: var(--cream); color: var(--text-dark); font-size: 17px; line-height: 1.75; }
 
-  body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    font-size: 17px;
-    line-height: 1.75;
-  }
-
-  /* ── NAV ─────────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--navy);
-    border-bottom: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2.5rem;
-    height: 58px;
-  }
-  .nav-brand {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold-light);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .nav-links {
-    display: flex; gap: 0; list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.78rem;
-    font-weight: 300;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0 0.9rem;
-    height: 58px;
-    display: flex; align-items: center;
-    transition: color 0.2s, background 0.2s;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-  }
-  .nav-links a:hover {
-    color: var(--gold-light);
-    border-bottom-color: var(--gold-light);
-  }
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); border-bottom: 2px solid var(--gold); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 58px; }
+  .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1rem; font-weight: 600; letter-spacing: 0.03em; text-decoration: none; white-space: nowrap; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-family: 'Source Serif 4', serif; font-size: 0.78rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 0.9rem; height: 58px; display: flex; align-items: center; transition: color 0.2s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .nav-links a:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold-light); transition: 0.3s; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold-light); }
 
-  /* ── HERO ────────────────────────────────────────── */
-  #hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center;
-    padding: 6rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  #hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(201,149,42,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 80% 20%, rgba(37,61,110,0.6) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 700;
-    color: var(--warm-white);
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.4s forwards;
-  }
-  .hero-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--gold-light);
-    margin-bottom: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.55s forwards;
-  }
-  .hero-rule {
-    width: 80px; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.65s forwards;
-  }
-  .hero-meta {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.9rem;
-    font-weight: 300;
-    line-height: 2;
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.75s forwards;
-  }
+  /* HERO */
+  #hero { min-height: 100vh; background: var(--navy); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
+  #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(201,149,42,0.08) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 80% 20%, rgba(37,61,110,0.6) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; color: var(--warm-white); line-height: 1.1; margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 400; font-style: italic; color: var(--gold-light); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.9s ease 0.55s forwards; }
+  .hero-rule { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 2.5rem; opacity: 0; animation: fadeUp 0.9s ease 0.65s forwards; }
+  .hero-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; font-weight: 300; line-height: 2; opacity: 0; animation: fadeUp 0.9s ease 0.75s forwards; }
   .hero-meta strong { color: rgba(255,255,255,0.85); font-weight: 400; }
-  .hero-scroll {
-    position: absolute; bottom: 2.5rem;
-    left: 50%; transform: translateX(-50%);
-    color: var(--gold);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-  }
-  .hero-scroll::after {
-    content: '';
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollPulse 1.8s ease-in-out infinite;
-  }
-  @keyframes scrollPulse { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.4;transform:scaleY(0.7)} }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); color: var(--gold); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; animation: fadeUp 1s ease 1.2s forwards; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .hero-scroll::after { content: ''; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 1.8s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── SECTION SHELL ───────────────────────────────── */
-  section {
-    padding: 6rem 2rem;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  section.full-width {
-    max-width: none;
-    padding-left: 0; padding-right: 0;
-  }
-  .section-eyebrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .section-eyebrow::after {
-    content: '';
-    flex: 1; height: 1px;
-    background: var(--rule);
-  }
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 2rem;
-  }
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--navy-mid);
-    margin: 2rem 0 0.75rem;
-  }
+  /* SECTIONS */
+  section { padding: 6rem 2rem; max-width: 860px; margin: 0 auto; }
+  section.full-width { max-width: none; padding-left: 0; padding-right: 0; }
+  .section-eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; }
+  .section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 2rem; }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--navy-mid); margin: 2.5rem 0 0.75rem; }
   p { margin-bottom: 1.25rem; color: var(--text-mid); }
   p:last-child { margin-bottom: 0; }
 
-  /* ── DARK SECTIONS ───────────────────────────────── */
-  .dark-section {
-    background: var(--navy);
-    padding: 6rem 2rem;
-  }
-  .dark-section-inner {
-    max-width: 860px;
-    margin: 0 auto;
-  }
+  /* DARK SECTIONS */
+  .dark-section { background: var(--navy); padding: 6rem 2rem; }
+  .dark-section-inner { max-width: 860px; margin: 0 auto; }
   .dark-section .section-eyebrow { color: var(--gold-light); }
   .dark-section .section-eyebrow::after { background: rgba(232,184,75,0.2); }
   .dark-section h2 { color: var(--warm-white); }
   .dark-section h3 { color: var(--gold-light); }
   .dark-section p { color: rgba(255,255,255,0.72); }
 
-  /* ── PULL QUOTE ──────────────────────────────────── */
-  .pull-quote {
-    border-left: 3px solid var(--gold);
-    padding: 1.25rem 1.75rem;
-    margin: 2.5rem 0;
-    background: rgba(201,149,42,0.06);
-    border-radius: 0 4px 4px 0;
-  }
-  .pull-quote p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--navy-mid) !important;
-    margin: 0;
-    line-height: 1.65;
-  }
-  .dark-section .pull-quote {
-    background: rgba(201,149,42,0.08);
-    border-left-color: var(--gold-light);
-  }
+  /* PULL QUOTE */
+  .pull-quote { border-left: 3px solid var(--gold); padding: 1.25rem 1.75rem; margin: 2.5rem 0; background: rgba(201,149,42,0.06); border-radius: 0 4px 4px 0; }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-style: italic; color: var(--navy-mid) !important; margin: 0; line-height: 1.65; }
+  .dark-section .pull-quote { background: rgba(201,149,42,0.08); border-left-color: var(--gold-light); }
   .dark-section .pull-quote p { color: rgba(255,255,255,0.88) !important; }
 
-  /* ── SUMMARY BOX ─────────────────────────────────── */
-  .summary-box {
-    background: var(--navy);
-    color: var(--warm-white);
-    border-radius: 8px;
-    padding: 1.75rem 2rem;
-    margin-top: 3rem;
-  }
-  .summary-box .label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-  .summary-box p {
-    color: rgba(255,255,255,0.8);
-    font-style: italic;
-    font-size: 0.95rem;
-    margin: 0;
-  }
-  .dark-section .summary-box {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(201,149,42,0.25);
-  }
+  /* SUMMARY BOX */
+  .summary-box { background: var(--navy); color: var(--warm-white); border-radius: 8px; padding: 1.75rem 2rem; margin-top: 3rem; }
+  .summary-box .label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; display: block; }
+  .summary-box p { color: rgba(255,255,255,0.8); font-style: italic; font-size: 0.95rem; margin: 0; }
+  .dark-section .summary-box { background: rgba(255,255,255,0.07); border: 1px solid rgba(201,149,42,0.25); }
 
-  /* ── RUBRIC GRID ─────────────────────────────────── */
-  .rubric-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
-    margin: 3rem 0;
-  }
-  .rubric-card {
-    background: var(--warm-white);
-    border: 1px solid rgba(15,31,61,0.1);
-    border-top: 3px solid var(--gold);
-    border-radius: 6px;
-    padding: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
-  }
-  .rubric-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(15,31,61,0.12);
-  }
-  .rubric-card .num {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  .rubric-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.05rem;
-    color: var(--navy);
-  }
-  .rubric-card p {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin: 0;
-    line-height: 1.5;
-  }
+  /* RUBRIC GRID */
+  .rubric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 3rem 0; }
+  .rubric-card { background: var(--warm-white); border: 1px solid rgba(15,31,61,0.1); border-top: 3px solid var(--gold); border-radius: 6px; padding: 1.5rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+  .rubric-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,31,61,0.12); }
+  .rubric-card .num { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+  .rubric-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--navy); }
+  .rubric-card p { font-size: 0.85rem; color: var(--text-light); margin: 0; line-height: 1.5; }
 
-  /* ── DATA CHART ──────────────────────────────────── */
-  .chart-container {
-    background: var(--warm-white);
-    border-radius: 10px;
-    padding: 2.5rem;
-    margin: 2.5rem 0;
-    border: 1px solid rgba(15,31,61,0.08);
-    box-shadow: 0 4px 20px rgba(15,31,61,0.06);
-  }
-  .chart-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-    text-align: center;
-  }
-  .chart-subtitle {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    text-align: center;
-    margin-bottom: 2rem;
-    letter-spacing: 0.05em;
-  }
-  .chart-bars {
-    display: flex;
-    gap: 12px;
-    align-items: flex-end;
-    height: 220px;
-    padding-bottom: 30px;
-    position: relative;
-    border-bottom: 2px solid rgba(15,31,61,0.1);
-  }
-  .chart-bars::before {
-    content: '';
-    position: absolute;
-    left: 0; right: 0;
-    top: 0; bottom: 30px;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent calc(25% - 1px),
-      rgba(15,31,61,0.05) calc(25% - 1px),
-      rgba(15,31,61,0.05) 25%
-    );
-    pointer-events: none;
-  }
-  .bar-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    height: 100%;
-    justify-content: flex-end;
-  }
-  .bar-wrap {
-    width: 100%;
-    display: flex;
-    gap: 4px;
-    align-items: flex-end;
-    flex: 1;
-  }
-  .bar {
-    flex: 1;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    min-height: 4px;
-  }
-  .bar:hover { opacity: 0.85; }
+  /* CHART */
+  .chart-container { background: var(--warm-white); border-radius: 10px; padding: 2.5rem; margin: 2.5rem 0; border: 1px solid rgba(15,31,61,0.08); box-shadow: 0 4px 20px rgba(15,31,61,0.06); }
+  .chart-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; text-align: center; }
+  .chart-subtitle { font-size: 0.8rem; color: var(--text-light); text-align: center; margin-bottom: 2rem; }
+  .chart-bars { display: flex; gap: 10px; align-items: flex-end; height: 220px; padding-bottom: 30px; position: relative; border-bottom: 2px solid rgba(15,31,61,0.1); }
+  .chart-bars::before { content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 30px; background: repeating-linear-gradient(to bottom, transparent, transparent calc(25% - 1px), rgba(15,31,61,0.05) calc(25% - 1px), rgba(15,31,61,0.05) 25%); pointer-events: none; }
+  .bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+  .bar-wrap { width: 100%; display: flex; gap: 3px; align-items: flex-end; flex: 1; }
+  .bar { flex: 1; border-radius: 4px 4px 0 0; position: relative; min-height: 4px; cursor: pointer; transition: opacity 0.2s; }
+  .bar:hover { opacity: 0.82; }
   .bar.pre { background: var(--navy-light); }
   .bar.post { background: var(--gold); }
-  .bar-val {
-    position: absolute;
-    top: -22px;
-    left: 50%; transform: translateX(-50%);
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    white-space: nowrap;
-  }
-  .bar-label {
-    font-size: 0.65rem;
-    color: var(--text-light);
-    text-align: center;
-    margin-top: 6px;
-    white-space: nowrap;
-  }
-  .chart-legend {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    color: var(--text-mid);
-  }
+  .bar-val { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-size: 0.62rem; font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+  .bar-label { font-size: 0.62rem; color: var(--text-light); text-align: center; margin-top: 6px; }
+  .chart-legend { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-mid); }
   .legend-item { display: flex; align-items: center; gap: 6px; }
   .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
-  .chart-stat-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(15,31,61,0.08);
-  }
-  .chart-stat {
-    text-align: center;
-  }
-  .chart-stat .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-  .chart-stat .stat-label {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    line-height: 1.3;
-  }
+  .chart-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(15,31,61,0.08); }
+  .chart-stat { text-align: center; }
+  .chart-stat .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; margin-bottom: 0.25rem; }
+  .chart-stat .stat-label { font-size: 0.75rem; color: var(--text-light); line-height: 1.3; }
 
-  /* ── ARTIFACT CARDS ──────────────────────────────── */
-  .artifact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-  .artifact-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,149,42,0.2);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .artifact-card:hover {
-    border-color: rgba(201,149,42,0.5);
-    background: rgba(255,255,255,0.08);
-  }
-  .artifact-card .tag {
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  .artifact-card h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: var(--warm-white);
-    margin-bottom: 0.5rem;
-    line-height: 1.35;
-  }
-  .artifact-card p {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.55);
-    margin: 0;
-    line-height: 1.5;
-  }
+  /* ARTIFACT CARDS */
+  .artifact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .artifact-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,149,42,0.2); border-radius: 8px; padding: 1.5rem; transition: border-color 0.2s, background 0.2s; }
+  .artifact-card:hover { border-color: rgba(201,149,42,0.5); background: rgba(255,255,255,0.08); }
+  .artifact-card .tag { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+  .artifact-card h4 { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 600; color: var(--warm-white); margin-bottom: 0.5rem; line-height: 1.35; }
+  .artifact-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin: 0; line-height: 1.5; }
 
-  /* ── CONFERENCE BADGES ───────────────────────────── */
-  .conf-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  .conf-badge {
-    background: var(--navy);
-    border: 1px solid var(--gold);
-    border-radius: 6px;
-    padding: 1rem 1.5rem;
-    flex: 1; min-width: 220px;
-  }
-  .conf-badge .conf-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gold-light);
-    margin-bottom: 0.25rem;
-  }
-  .conf-badge .conf-paper {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
-    font-style: italic;
-    line-height: 1.4;
-    margin-bottom: 0.4rem;
-  }
-  .conf-badge .conf-meta {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 0.05em;
-  }
+  /* CONFERENCE BADGES */
+  .conf-badges { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
+  .conf-badge { background: var(--navy); border: 1px solid var(--gold); border-radius: 6px; padding: 1rem 1.5rem; flex: 1; min-width: 220px; }
+  .conf-badge .conf-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--gold-light); margin-bottom: 0.25rem; }
+  .conf-badge .conf-paper { font-size: 0.85rem; color: rgba(255,255,255,0.7); font-style: italic; line-height: 1.4; margin-bottom: 0.4rem; }
+  .conf-badge .conf-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
 
-  /* ── TIMELINE ────────────────────────────────────── */
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
-    margin: 2rem 0;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 8px; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--gold), rgba(201,149,42,0.1));
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1rem;
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.5rem; top: 8px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--gold);
-    border: 2px solid var(--cream);
-    box-shadow: 0 0 0 2px var(--gold);
-  }
-  .timeline-item .tl-date {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-  .timeline-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 0.4rem;
-  }
-  .timeline-item p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    margin: 0;
-  }
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; margin: 2rem 0; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(201,149,42,0.1)); }
+  .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1rem; }
+  .timeline-item::before { content: ''; position: absolute; left: -2.5rem; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--cream); box-shadow: 0 0 0 2px var(--gold); }
+  .timeline-item .tl-date { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; display: block; }
+  .timeline-item h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+  .timeline-item p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
 
-  /* ── FOOTER ──────────────────────────────────────── */
-  footer {
-    background: var(--navy);
-    border-top: 2px solid var(--gold);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  footer .footer-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--warm-white);
-    margin-bottom: 0.5rem;
-  }
-  footer p {
-    color: rgba(255,255,255,0.45);
-    font-size: 0.82rem;
-    margin: 0;
-  }
-  .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 1.5rem;
-    background: var(--gold);
-    color: var(--navy);
-    text-decoration: none;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.75rem 1.75rem;
-    border-radius: 4px;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .download-btn:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
+  /* DIVIDER */
+  .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--rule), transparent); max-width: 860px; margin: 0 auto; }
 
-  /* ── DIVIDER ─────────────────────────────────────── */
-  .section-divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--rule), transparent);
-    max-width: 860px;
-    margin: 0 auto;
-  }
+  /* FOOTER */
+  footer { background: var(--navy); border-top: 2px solid var(--gold); padding: 3rem 2rem; text-align: center; }
+  footer .footer-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--warm-white); margin-bottom: 0.5rem; }
+  footer p { color: rgba(255,255,255,0.45); font-size: 0.82rem; margin: 0; }
+  .download-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 1.5rem; background: var(--gold); color: var(--navy); text-decoration: none; font-family: 'Source Serif 4', serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: 4px; transition: background 0.2s, transform 0.2s; }
+  .download-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-  /* ── MOBILE ──────────────────────────────────────── */
+  /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; flex-direction: column; position: absolute; top: 58px; left: 0; right: 0; background: var(--navy); padding: 1rem 0; border-bottom: 2px solid var(--gold); }
     .nav-links.open { display: flex; }
-    .nav-links a { height: auto; padding: 0.75rem 1.5rem; border-bottom: none; border-left: 2px solid transparent; }
-    .nav-links a:hover { border-left-color: var(--gold-light); border-bottom: none; }
+    .nav-links a { height: auto; padding: 0.75rem 1.5rem; border-bottom: none; }
     .hamburger { display: flex; }
     section { padding: 4rem 1.25rem; }
     .dark-section { padding: 4rem 1.25rem; }
-    .chart-bars { gap: 6px; }
+    .chart-bars { gap: 4px; }
     .rubric-grid { grid-template-columns: 1fr; }
     .conf-badges { flex-direction: column; }
   }
@@ -626,7 +159,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-brand">Melissa Alexander-Blythe</a>
   <ul class="nav-links" id="navLinks">
@@ -644,7 +176,7 @@
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="full-width" style="max-width:none; padding: 6rem 2rem 5rem;">
+<section id="hero" class="full-width" style="max-width:none;padding:6rem 2rem 5rem;">
   <div class="hero-eyebrow">Marshall University &bull; Doctoral Portfolio &bull; Curriculum &amp; Instruction</div>
   <h1 class="hero-title">Beyond Urgency</h1>
   <div class="hero-subtitle">From Practitioner to Scholar</div>
@@ -660,45 +192,21 @@
 <!-- INTRO -->
 <section id="intro">
   <div class="section-eyebrow">Introduction</div>
-  <h2>Where I Began &amp; Where I Am</h2>
-  <p>Advanced academic programming often appears equitable on paper. Enrollment increases, course offerings expand, and districts celebrate rising participation rates. Yet access alone does not ensure intellectual equity. In my work supporting Advanced Placement instruction across Fort Worth ISD, I repeatedly observed differences in how rigor was enacted across campuses. In one Title I classroom, students were completing structured note guides and preparing for multiple-choice practice, while in a higher-SES campus, students in the same course were engaged in peer critique, metacognitive reflection journals, and iterative revision of analytical writing.</p>
-  <p>Both classrooms were on pace. Both were aligned to standards. The cognitive work required of students, however, differed substantially.</p>
+  <h2>Where I Began and Where I Am</h2>
+  <p>Advanced academic programming often looks equitable on paper. Enrollment increases, course offerings expand, and districts announce rising participation rates. Access alone, though, does not produce intellectual equity. In my work supporting Advanced Placement instruction across Fort Worth ISD, I repeatedly observed differences in how rigor was enacted across campuses. In one Title I classroom, students were completing structured note guides and preparing for multiple-choice practice. In a higher-SES campus running the same course, students were engaged in peer critique, metacognitive reflection journals, and iterative revision of analytical writing. Both classrooms were on pace. Both were aligned to standards. The cognitive work required of students was not the same.</p>
+  <p>I came into this program convinced I knew what the problem was and ready to fix it. The program had other ideas. What followed was two years of coursework, research, collaboration, and reflection that changed not just what I know but how I think.</p>
   <div class="pull-quote">
     <p>"I entered this program focused on solving problems. I leave it focused on studying them, which turns out to be a more powerful way to produce lasting change."</p>
   </div>
-  <p>This portfolio documents the development of my identity as a scholar-practitioner. The sections that follow address each element of the Marshall University Doctoral Portfolio Rubric: Collaboration, Depth of Understanding, Reflection, Scholarship, Communication, and Research.</p>
+  <p>This portfolio documents that development. The sections below address each element of the Marshall University Doctoral Portfolio Rubric: Collaboration, Depth of Understanding, Reflection, Scholarship, Communication, and Research. Each section includes the artifacts that support it.</p>
 
   <div class="rubric-grid" style="margin-top:3rem;">
-    <a class="rubric-card" href="#collaboration">
-      <span class="num">01</span>
-      <h3>Collaboration</h3>
-      <p>Faculty, peer, and practitioner partnerships across NSSA, SITE, and Dunbar High School.</p>
-    </a>
-    <a class="rubric-card" href="#depth">
-      <span class="num">02</span>
-      <h3>Depth of Understanding</h3>
-      <p>Theoretical synthesis across Eisner, Freire, Vygotsky, Flavell, Schon, and Hammond.</p>
-    </a>
-    <a class="rubric-card" href="#reflection">
-      <span class="num">03</span>
-      <h3>Reflection</h3>
-      <p>From positionality work to real-time reflection inside the action research cycle.</p>
-    </a>
-    <a class="rubric-card" href="#scholarship">
-      <span class="num">04</span>
-      <h3>Scholarship</h3>
-      <p>Two national conference presentations, a pilot study, and a conceptual framework.</p>
-    </a>
-    <a class="rubric-card" href="#research">
-      <span class="num">05</span>
-      <h3>Research</h3>
-      <p>Pilot study + action research with documented student growth of 32&ndash;50 points.</p>
-    </a>
-    <a class="rubric-card" href="#artifacts">
-      <span class="num">06</span>
-      <h3>Artifacts</h3>
-      <p>Full collection of research instruments, presentations, papers, and data.</p>
-    </a>
+    <a class="rubric-card" href="#collaboration"><span class="num">01</span><h3>Collaboration</h3><p>Faculty, peer, and practitioner partnerships across NSSA, SITE, and Dunbar High School.</p></a>
+    <a class="rubric-card" href="#depth"><span class="num">02</span><h3>Depth of Understanding</h3><p>Theoretical synthesis across Eisner, Freire, Vygotsky, Flavell, Schon, and Hammond.</p></a>
+    <a class="rubric-card" href="#reflection"><span class="num">03</span><h3>Reflection</h3><p>From positionality work to real-time reflection inside the action research cycle.</p></a>
+    <a class="rubric-card" href="#scholarship"><span class="num">04</span><h3>Scholarship</h3><p>Two national conference presentations, a pilot study, and a conceptual framework.</p></a>
+    <a class="rubric-card" href="#research"><span class="num">05</span><h3>Research</h3><p>Pilot study and action research with documented student growth of 32 to 50 points.</p></a>
+    <a class="rubric-card" href="#artifacts"><span class="num">06</span><h3>Artifacts</h3><p>Full collection of research instruments, presentations, papers, and data.</p></a>
   </div>
 </section>
 
@@ -709,33 +217,33 @@
   <div class="dark-section-inner">
     <div class="section-eyebrow">Rubric Element 01</div>
     <h2>Collaboration</h2>
-    <p>Collaboration has always been central to my professional role, but this program fundamentally changed how I understand and engage in collaborative work. Prior to entering the program, collaboration often functioned as coordination. Through this program, collaboration became a process of shared inquiry &mdash; questioning assumptions, analyzing practice, and co-constructing new understandings rather than simply dividing tasks.</p>
+    <p>Before this program, collaboration meant coordination: aligning efforts, sharing resources, getting things done. This program redefined it as shared inquiry. The difference is not semantic. Coordinating produces implementation. Inquiring together produces knowledge.</p>
 
     <div class="conf-badges">
       <div class="conf-badge">
         <div class="conf-name">NSSA Fall Conference</div>
         <div class="conf-paper">"Teacher Use of Metacognitive Practices in AP Classrooms"</div>
-        <div class="conf-meta">Hot Springs, AR &bull; October 2025 &bull; w/ Dr. Ron Childress</div>
+        <div class="conf-meta">Hot Springs, AR &bull; October 2025 &bull; with Dr. Ron Childress</div>
       </div>
       <div class="conf-badge">
         <div class="conf-name">SITE Annual Conference</div>
         <div class="conf-paper">"Preparing Educators for AI-Infused Classrooms"</div>
-        <div class="conf-meta">March 2025 &bull; w/ Geddis, Osterfeld, Clemmins &amp; Rich</div>
+        <div class="conf-meta">March 2025 &bull; with Geddis, Osterfeld, Clemmins, and Rich</div>
       </div>
     </div>
 
     <h3>Faculty Collaboration</h3>
-    <p>Feedback from faculty extended beyond surface revision to substantive interrogation of theoretical alignment. When I brought early drafts of my conceptual framework for review, the question came back: <em>where is the mechanism?</em> That question forced a level of precision I had not previously applied. I had listed theories I valued. What I had not done was articulate how one thing actually produces another.</p>
+    <p>Working with Dr. Childress on my conceptual framework and NSSA presentation required a level of precision I had not previously applied to my thinking. When I brought an early draft for review, the question came back: where is the mechanism? I had assembled the theories I valued. What I had not done was show how one thing actually produces another. That challenge forced substantive revision and elevated the work from observation to argument. Coursework with Dr. Yuan produced my Positionality Reflection and Conceptual Framework, both of which required defending theoretical choices rather than simply reporting them. Coursework with Dr. Sochor produced three annotated bibliographies examining AP equity, dual enrollment, gifted education, and the experiences of underrepresented students in advanced academic settings.</p>
 
     <h3>Peer Collaboration</h3>
-    <p>A colleague challenged my framing of equity gaps, noting that describing students as lacking metacognitive skills implied the problem resided in the student rather than in the instructional opportunity. That exchange reshaped the language I use in research and the lens I apply in classrooms. I now consistently distinguish between what students have not yet been taught and what they are not capable of.</p>
+    <p>The SITE conference panel brought together five doctoral students from different professional contexts to present a cohesive argument about AI and teacher preparation. Building that presentation required genuine negotiation: our perspectives did not always align, and getting to a coherent argument took real work. Within coursework, peer critique during pilot study development helped me catch leading questions in my interview protocol before I used them in the field. A colleague pointed out that my framing implied deficit in students rather than in instructional design. That observation reshaped how I write about equity in research contexts.</p>
 
     <h3>Practitioner Partnership</h3>
-    <p>Working alongside an AP Government teacher at Dunbar High School, I engaged in co-planning, modeling, and collaborative analysis rather than prescriptive support. Midway through the action research cycle, the teacher reflected that the process had changed how she listened to herself during class. She described starting to hear herself asking <em>what</em> rather than <em>how</em> and deciding to shift the question.</p>
+    <p>My action research at Dunbar High School was not a study I conducted on a teacher. It was a project I built with one. Co-planning lessons, modeling strategies, and analyzing student work together over three weeks showed me what instructional change actually looks like from the inside. It also confirmed something theory alone cannot teach: sustainable improvement requires relational trust, and relational trust requires time and honesty about what is and is not working.</p>
 
     <div class="summary-box">
       <span class="label">Section Summary &mdash; Collaboration</span>
-      <p>Collaboration is evident across multiple contexts: faculty mentorship and peer dialogue within the program, co-presenting at the NSSA and SITE national conferences, and a sustained practitioner research partnership at Dunbar High School. Each experience strengthened the rigor of my work and deepened my understanding of what shared inquiry requires.</p>
+      <p>Collaboration is documented across faculty partnerships (Dr. Childress, Dr. Yuan, Dr. Sochor), peer collaboration on conference panels and protocol development, and a sustained practitioner research partnership at Dunbar High School. Each experience produced scholarship, not just activity. Artifacts: NSSA presentation, SITE presentation, annotated bibliographies, action research plan, conceptual framework.</p>
     </div>
   </div>
 </div>
@@ -744,24 +252,27 @@
 <section id="depth">
   <div class="section-eyebrow">Rubric Element 02</div>
   <h2>Depth of Understanding</h2>
-  <p>My understanding of teaching, learning, and curriculum deepened through sustained engagement with theoretical frameworks across the program. The most significant shift was conceptual: I moved from viewing instructional improvement as primarily structural to understanding it as philosophical.</p>
+  <p>The most significant intellectual shift of this program was conceptual. I stopped viewing instructional improvement as a logistics problem and started understanding it as a philosophical one. Curriculum theory is where that shift began.</p>
 
   <h3>Curriculum Theory</h3>
-  <p>Eisner's (2002) framing of curriculum as an intellectual and aesthetic encounter disrupted my prior view of curriculum as content to be covered. Freire's (1970) pedagogy of critical consciousness raised questions about whose knowledge is centered and how power operates within advanced academic spaces.</p>
+  <p>Eisner's (2002) work reframed curriculum as an intellectual and aesthetic encounter rather than content to be delivered. That framing forced me to ask not just whether students completed tasks but what kind of thinking those tasks required. Freire's (1970) pedagogy of critical consciousness raised a harder question: whose knowledge gets centered, and who decides what rigor looks like? In AP classrooms serving Title I students, those are not abstract questions. They explain specific patterns I had been watching for years without having language to name.</p>
 
-  <h3>Cognitive &amp; Learning Theory</h3>
-  <p>Vygotsky's (1978) concept of scaffolded social interaction explained how higher-order reasoning develops through guided participation rather than spontaneous mastery. Flavell's (1979) distinction between metacognitive <em>knowledge</em> and metacognitive <em>regulation</em> gave me a framework for analyzing classroom observations. Schon's (1983) reflection-in-action brought the teacher's role into focus.</p>
+  <h3>Cognitive and Learning Theory</h3>
+  <p>Vygotsky (1978) explained how higher-order reasoning develops through guided participation, not independent discovery. That matters for AP instruction because it means students do not arrive with thinking skills fully formed. Those skills are built through deliberate instructional design. Flavell's (1979) distinction between metacognitive knowledge and metacognitive regulation gave me a framework for what I was observing in classrooms: students often knew they were struggling without knowing what to do about it. Schon's (1983) reflection-in-action put the responsibility back on teachers. When teachers make their own reasoning visible in real time, students gain access to a model of what thinking through complexity actually looks like.</p>
 
   <div class="pull-quote">
-    <p>"When teachers make their own thinking visible in real time, modeling how they approach complexity, revise, and reason, they create the conditions for students to develop those same capacities."</p>
+    <p>"Teacher perception functions as the mediating variable. What teachers believe about their students' capacity shapes what they design. What they design shapes what students have the opportunity to practice. What students practice shapes what they develop."</p>
   </div>
 
+  <h3>Literature and Field Engagement</h3>
+  <p>Three annotated bibliographies produced in C-701 with Dr. Sochor document sustained engagement with the research base on AP equity, dual enrollment, and gifted education. This reading confirmed what my classroom observations suggested: programs designed for rigor frequently reproduce the inequities they claim to address, particularly for first-generation students, Black students, and students from lower-income households. Kyburg, Hertberg-Davis, and Callahan's (2007) work on AP programs and talented minorities and Saffore's (2023) research on Black girls' post-secondary outcomes both show that access without intentional instructional support produces uneven results.</p>
+
   <h3>Conceptual Framework</h3>
-  <p>My Conceptual Framework, developed in EDF 725, formalized the synthesis of these theoretical strands. Rather than treating equity, rigor, and metacognition as separate initiatives, I articulated them as interdependent constructs. <strong>Teacher perception functions as the mediating variable.</strong> What teachers believe about their students' capacity shapes what they design. What they design shapes what students have the opportunity to practice. What students practice shapes what they develop.</p>
+  <p>My Conceptual Framework, developed in EDF 725 with Dr. Yuan, synthesized these theoretical strands into a working model. Teacher perception mediates instructional design. Instructional design shapes metacognitive opportunity. Metacognitive opportunity influences student agency. Equity and rigor are not competing priorities; they become mutually reinforcing when instruction is explicitly designed to build students' capacity to regulate their own learning.</p>
 
   <div class="summary-box">
     <span class="label">Section Summary &mdash; Depth of Understanding</span>
-    <p>My depth of understanding is demonstrated through sustained, synthesized engagement with curriculum theory, learning theory, and the emerging intersection of AI and cognition. The conceptual framework integrates Eisner, Freire, Vygotsky, Flavell, Schon, Hammond, and Zimmerman into a coherent model grounded in the specific inequities of AP instruction in underserved settings.</p>
+    <p>Depth of understanding is demonstrated through sustained theoretical synthesis across curriculum theory, cognitive science, culturally responsive pedagogy, and field-specific literature on AP equity. Artifacts: Conceptual Framework (EDF 725), Annotated Bibliographies 1, 2, and 3 (C-701), CIEC 700 Technology Paper.</p>
   </div>
 </section>
 
@@ -772,70 +283,80 @@
   <div class="dark-section-inner">
     <div class="section-eyebrow">Rubric Element 03</div>
     <h2>Reflection</h2>
-    <p>The portfolio rubric asks for deep reflection that demonstrates a clear connection between doctoral program experiences and professional growth. That connection has been the most personal and at times the most uncomfortable dimension of this program.</p>
+    <p>The portfolio rubric defines outstanding reflection as in-depth synthesis that demonstrates a clear connection between doctoral experiences and professional growth. That connection has been the most personal dimension of this program, and at times the most difficult.</p>
 
-    <h3>Positionality</h3>
-    <p>My Positionality Reflection in EDF 725 was the first assignment that required me to examine the roots of my beliefs rather than simply act on them. Writing about my background as the first college graduate in my family, navigating professional spaces where I was frequently underestimated, and carrying a fierce urgency about outcomes for underserved students: all of that shaped how I led long before I could articulate it. The reflection revealed that this urgency, while rooted in genuine commitment, sometimes narrowed my patience for the pace of inquiry.</p>
+    <h3>Positionality and Identity</h3>
+    <p>My Positionality Reflection, written for CI 704 with Dr. Yuan, was the first assignment that required me to examine the roots of my commitments rather than simply act on them. I am the first college graduate on both sides of my extended family. I grew up without access to advanced coursework in a conservative, working-class environment. Those experiences created the urgency I brought into this work. They also created blind spots. Writing that reflection forced me to name the ways my own savior complex, my assumptions about what underserved students needed, and my impatience with slow progress were all getting in the way of genuine equity work. Advocacy rooted in unexamined identity is still advocacy for yourself.</p>
 
-    <h3>Research as Reflection</h3>
-    <p>Learning to listen to interview data without imposing my framework before the participant spoke was harder than I expected. Early drafts of my pilot study interview protocol revealed that I had written questions that assumed my conclusion. Revising those questions taught me that reflexivity is not a section of a research paper. It is a discipline that has to be practiced throughout the entire inquiry process.</p>
+    <h3>Reflexivity in Research</h3>
+    <p>Early drafts of my pilot study interview protocol revealed something uncomfortable: I had written questions that assumed my conclusion. The language I chose, the way I framed the problem, the order of the prompts all pointed the participant toward the answer I expected. Revising those questions, under faculty feedback, taught me that reflexivity is not a section of a research paper. It is something you have to practice at every stage of inquiry, including the stage where you think you already know what you are going to find.</p>
 
     <div class="pull-quote">
-      <p>"The most meaningful learning happens when we examine our practice while we are still inside it." &mdash; Schon (1983)</p>
+      <p>"Advocacy rooted in unexamined identity is still advocacy for yourself. The program taught me to slow down long enough to figure out whose interests I was actually serving."</p>
     </div>
 
-    <h3>Learning in Action</h3>
-    <p>The action research cycle produced a different kind of reflection. Working in a classroom rather than analyzing one from the outside required me to hold my theoretical commitments lightly enough to respond to what was actually happening. Watching the teacher shift &mdash; not because I told her to, but because she observed her students doing things she had not thought they could do &mdash; was one of the clearest moments of this entire program.</p>
+    <h3>Reflection in Practice</h3>
+    <p>The action research cycle produced a different kind of reflection. Partway through the three weeks, the AP Government teacher I was working with described starting to hear herself asking what rather than how during class. She said she caught it in the moment and changed the question. That is Schon's (1983) reflection-in-action in a real classroom, not a textbook. Watching it happen was a reminder that the most meaningful learning often occurs while you are still inside the experience, not after you have had time to process it safely from a distance.</p>
 
     <div class="summary-box">
       <span class="label">Section Summary &mdash; Reflection</span>
-      <p>Reflection in this portfolio is not retrospective decoration. It is woven throughout the research process, from positionality work that surfaced hidden assumptions, to protocol revision that corrected leading questions, to real-time reflection during the action research cycle. The program produced a measurable shift in how I understand my role: from a leader who solves problems to a scholar-practitioner who studies them.</p>
+      <p>Reflection in this portfolio is not retrospective. It is embedded in the research process itself, from the positionality work that named unexamined assumptions, to the protocol revision that corrected researcher bias, to real-time reflection during the action research cycle. Artifacts: Positionality Reflection (CI 704), Pilot Study reflexivity section, Action Research coaching log and teacher reflections.</p>
     </div>
   </div>
 </div>
 
 <!-- SCHOLARSHIP -->
 <section id="scholarship">
-  <div class="section-eyebrow">Rubric Element 04</div>
-  <h2>Scholarship &amp; Communication</h2>
-  <p>The portfolio requirement specifies at least one co-authored conference presentation or publication in collaboration with a faculty member. My NSSA conference presentation meets this requirement directly: I co-authored and co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress at the National Social Science Association Fall Conference in Hot Springs, Arkansas, October 2025.</p>
+  <div class="section-eyebrow">Rubric Element 04 and 05</div>
+  <h2>Scholarship and Communication</h2>
+  <p>The portfolio requirement specifies at least one co-authored conference presentation or publication in collaboration with a faculty member. The NSSA conference presentation meets that requirement directly. What follows is the full arc of scholarly development across the program.</p>
 
   <div class="timeline">
     <div class="timeline-item">
-      <span class="tl-date">2023</span>
-      <h4>CIEC 700 Technology &amp; Metacognition Paper</h4>
-      <p>Examined how smart learning environments, clicker technology, flipped classrooms, and AI tools interact with metacognitive development. First extended scholarly writing in the program.</p>
+      <span class="tl-date">Fall 2023</span>
+      <h4>Three Annotated Bibliographies (C-701, Dr. Sochor)</h4>
+      <p>Sustained literature review on AP equity, dual enrollment, gifted education, first-generation students, and Black girls' postsecondary outcomes. First formal engagement with the research base that now underpins the dissertation.</p>
     </div>
     <div class="timeline-item">
-      <span class="tl-date">2024</span>
+      <span class="tl-date">Fall 2023</span>
+      <h4>CIEC 700: Technology and Student Metacognition</h4>
+      <p>Examined how smart learning environments, clicker technology, learning logs, flipped classrooms, and AI tools interact with metacognitive development. First extended scholarly argument in the program.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="tl-date">Spring 2024</span>
       <h4>EDF 625 Pilot Study</h4>
-      <p>"Teacher Metacognitive Practices in Advanced Academic Courses: A Look at Bias and Perception." First original empirical work. Semi-structured interviews analyzed through thematic coding.</p>
+      <p>"Teacher Metacognitive Practices in Advanced Academic Courses: A Look at Bias and Perception." First original empirical work. Semi-structured interviews analyzed through thematic coding following Saldana (2011).</p>
     </div>
     <div class="timeline-item">
-      <span class="tl-date">2024</span>
+      <span class="tl-date">Spring 2024</span>
+      <h4>Positionality Reflection (CI 704, Dr. Yuan)</h4>
+      <p>Examined how identity, background, and professional experience shape research lens and pedagogical commitments. Grounded in Crenshaw (1989), Freire (1970), hooks (1994), and Paris (2012).</p>
+    </div>
+    <div class="timeline-item">
+      <span class="tl-date">Fall 2024</span>
       <h4>EDF 725 Conceptual Framework</h4>
-      <p>"Conceptual Framework for Investigating Metacognition in AP Classrooms." Synthesized Eisner, Freire, Vygotsky, Flavell, Schon, Ladson-Billings, Hammond, and Zimmerman.</p>
+      <p>"Conceptual Framework for Investigating Metacognition in AP Classrooms." Synthesized Eisner, Freire, Vygotsky, Flavell, Schon, Ladson-Billings, Hammond, and Zimmerman into an original theoretical model.</p>
     </div>
     <div class="timeline-item">
       <span class="tl-date">March 2025</span>
       <h4>SITE Annual Conference</h4>
-      <p>"Preparing Educators for AI-Infused Classrooms." National panel with four doctoral colleagues. Argued AI increases rather than reduces cognitive demand and must be positioned as a metacognitive scaffold.</p>
+      <p>"Preparing Educators for AI-Infused Classrooms." National panel with four doctoral colleagues. Argued AI increases cognitive demand on students and must be positioned as a metacognitive scaffold rather than a shortcut.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="tl-date">Fall 2025</span>
+      <h4>Action Research: Dunbar High School</h4>
+      <p>Three-week classroom intervention with measurable student growth. Pre-test average 40%, post-test average 80%. Every student completed all assessments.</p>
     </div>
     <div class="timeline-item">
       <span class="tl-date">October 2025</span>
-      <h4>NSSA Fall Conference &mdash; Required Scholarship Element</h4>
-      <p>Co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress. Hot Springs, Arkansas. Met the portfolio's required scholarly activity.</p>
-    </div>
-    <div class="timeline-item">
-      <span class="tl-date">2025</span>
-      <h4>Action Research Project</h4>
-      <p>Collaborative AP Classroom intervention at Dunbar High School. Three-week study with measurable student growth documented through pre/post assessments, observations, and exit tickets.</p>
+      <h4>NSSA Fall Conference (Required Scholarship Element)</h4>
+      <p>"Teacher Use of Metacognitive Practices in AP Classrooms." Co-authored and co-presented with Dr. Ron Childress. Hot Springs, Arkansas. Meets the portfolio's required scholarly activity.</p>
     </div>
   </div>
 
   <div class="summary-box">
-    <span class="label">Section Summary &mdash; Scholarship &amp; Communication</span>
-    <p>The scholarship requirement is met through the NSSA conference co-presentation with Dr. Childress. Additional scholarship includes the SITE conference panel, the CIEC 700 paper, the EDF 625 pilot study, and the EDF 725 conceptual framework. Across these artifacts, writing evolved from comprehensive summaries to precise, theoretically grounded arguments. Scholarship now functions as a bridge between professional practice and academic inquiry.</p>
+    <span class="label">Section Summary &mdash; Scholarship and Communication</span>
+    <p>The required scholarship element is met through the NSSA co-presentation with Dr. Childress. Communication is demonstrated through written research artifacts showing measurable growth in argumentation, two national conference presentations requiring different audience adaptations, and research instrument design that translates theoretical constructs into observable indicators. Artifacts: NSSA presentation, SITE presentation, pilot study, conceptual framework, annotated bibliographies, CIEC 700 paper, action research presentation.</p>
   </div>
 </section>
 
@@ -844,19 +365,16 @@
 <!-- RESEARCH -->
 <div class="dark-section" id="research">
   <div class="dark-section-inner">
-    <div class="section-eyebrow">Rubric Element 05 &amp; 06</div>
+    <div class="section-eyebrow">Rubric Element 06</div>
     <h2>Research</h2>
-    <p>My research across this program demonstrates the utilization of the research process through a variety of projects that is highly organized and thorough, with research incorporated outside of the classroom.</p>
+    <p>Two original research studies conducted outside of any single course requirement. Both are grounded in a real problem of practice. Both contribute to a clear dissertation trajectory.</p>
 
-    <h3>Pilot Study: Teacher Perception &amp; Metacognition</h3>
-    <p>Conducted in EDF 625 using a phenomenological design with semi-structured interviews and classroom observations across Title I and higher-SES AP settings. Thematic coding following Saldana (2011) revealed that teachers in higher-SES settings more frequently described students as independent and capable of abstraction. Teachers in Title I contexts more often used language like "building foundations" and "being realistic about what they can handle."</p>
-    <p>The significance was not that scaffolding is harmful. The problem was that scaffolding frequently <em>replaced</em> metacognitive opportunity rather than building toward it.</p>
+    <h3>Pilot Study: Teacher Perception and Metacognition</h3>
+    <p>Conducted in EDF 625, the pilot study used a phenomenological design with semi-structured interviews and classroom observations across Title I and higher-SES AP settings. Thematic coding following Saldana (2011) revealed that teachers in higher-SES settings more frequently described students as independent, capable of abstraction, and self-directed. Teachers in Title I contexts more often used language like "building foundations," "meeting them where they are," and "being realistic about what they can handle." These phrases sound supportive. In practice, they corresponded with reduced opportunities for students to engage in independent metacognitive work. The problem was not student capacity. It was instructional expectation.</p>
 
     <h3>Action Research: Dunbar High School, FWISD</h3>
-    <p>Research question: <em>How does coaching an AP U.S. Government teacher to use AP Classroom collaboratively affect student engagement and metacognitive thinking over three weeks?</em></p>
-    <p>Data collection included pre/post AP Classroom progress checks, weekly observation notes using a structured checklist, student metacognitive exit tickets, weekly teacher reflections, and a researcher coaching log.</p>
+    <p>Research question: How does coaching an AP U.S. Government teacher to use AP Classroom collaboratively affect student engagement and metacognitive thinking over three weeks? Data collection included pre and post AP Classroom progress checks, weekly observation notes, student metacognitive exit tickets, weekly teacher reflections, and a researcher coaching log. Results were clear.</p>
 
-    <!-- CHART -->
     <div class="chart-container">
       <div class="chart-title">AP Classroom Progress-Check Score Growth</div>
       <div class="chart-subtitle">15 Students &bull; Dunbar High School, FWISD &bull; 3-Week Intervention</div>
@@ -866,31 +384,22 @@
         <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Post-Test</div>
       </div>
       <div class="chart-stat-row">
-        <div class="chart-stat">
-          <span class="stat-num">~40%</span>
-          <span class="stat-label">Average pre-test score</span>
-        </div>
-        <div class="chart-stat">
-          <span class="stat-num">~80%</span>
-          <span class="stat-label">Average post-test score</span>
-        </div>
-        <div class="chart-stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Completion rate post-intervention</span>
-        </div>
+        <div class="chart-stat"><span class="stat-num">~40%</span><span class="stat-label">Average pre-test score</span></div>
+        <div class="chart-stat"><span class="stat-num">~80%</span><span class="stat-label">Average post-test score</span></div>
+        <div class="chart-stat"><span class="stat-num">100%</span><span class="stat-label">Post-intervention completion rate</span></div>
       </div>
     </div>
 
     <h3>Key Findings</h3>
-    <p>Individual student gains ranged from 32 to 50 percentage points. Every student completed the post-assessment, a shift from baseline when several left questions unanswered. Exit ticket responses evolved from brief, unspecific answers to strategy-based explanations identifying what helped, why, and what they would change next time. The teacher documented increasing intentionality in her questioning, moving from confirming correct answers to asking students to justify their reasoning.</p>
+    <p>Individual student gains ranged from 32 to 50 percentage points. Every student completed the post-assessment, a shift from baseline when several left questions unanswered. Exit ticket responses evolved from brief and unspecific answers to strategy-based explanations. Students identified what helped them, explained why, and named what they would do differently next time. The teacher documented increasing intentionality in her questioning, moving from confirming correct answers to asking students to justify their reasoning. Findings aligned with research on metacognitive prompting and the impact of instructional coaching with live modeling (Joyce and Showers, 2002).</p>
 
     <div class="pull-quote">
-      <p>"The most significant instructional shift was the use of scaffolding to support engagement with purpose. It was not to reduce cognitive demand, but to build students' capacity to manage it independently."</p>
+      <p>"The most significant instructional shift was scaffolding used to support engagement with purpose, not to reduce cognitive demand, but to build students' capacity to manage it independently."</p>
     </div>
 
     <div class="summary-box">
       <span class="label">Section Summary &mdash; Research</span>
-      <p>Two original research studies conducted outside of any single course requirement. The pilot study produced qualitative findings on teacher perception and metacognitive practice across SES contexts. The action research documented measurable student growth through a theoretically grounded intervention. Both are organized, thorough, and directly inform the dissertation ahead.</p>
+      <p>The pilot study produced original qualitative findings on teacher perception and metacognitive practice across SES contexts. The action research documented measurable student growth through a theoretically grounded intervention. Both studies are organized, thorough, and directly inform the dissertation. Artifacts: pilot study full paper, action research plan, observation checklist, student exit tickets, AP Classroom data tracker, action research presentation.</p>
     </div>
   </div>
 </div>
@@ -898,110 +407,55 @@
 <!-- ARTIFACTS -->
 <section id="artifacts">
   <div class="section-eyebrow">Portfolio Artifacts</div>
-  <h2>Appendices &amp; Supporting Materials</h2>
-  <p>The following artifacts document the research, presentations, and instruments produced across the doctoral program. Each maps to a specific rubric element and informs the dissertation trajectory.</p>
+  <h2>Appendices and Supporting Materials</h2>
+  <p>The following artifacts document the research, presentations, coursework, and instruments produced across the doctoral program. Each maps to one or more rubric elements and contributes to the dissertation trajectory.</p>
 </section>
 
-<div class="dark-section" style="padding-top: 0;">
+<div class="dark-section" style="padding-top:0;">
   <div class="dark-section-inner">
     <div class="artifact-grid">
-      <div class="artifact-card">
-        <span class="tag">Appendix A &bull; Research</span>
-        <h4>Pilot Study: Teacher Metacognitive Practices in Advanced Academic Courses</h4>
-        <p>EDF 625: Qualitative Research. Full paper, interview protocol, codebook, and thematic analysis.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix B &bull; Research</span>
-        <h4>Action Research Plan: Collaborative AP Classroom Use</h4>
-        <p>Research question, participant information, three-week data collection timeline, and validity procedures. Dunbar High School, FWISD.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix C &bull; Research Instrument</span>
-        <h4>Engagement &amp; Metacognition Observation Checklist</h4>
-        <p>Structured one-page checklist used during all three classroom observation sessions.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix D &bull; Research Instrument</span>
-        <h4>Student Exit Ticket: Metacognition</h4>
-        <p>Three-question protocol on strategy use, impact of collaboration, and next steps. Administered after each collaborative lesson.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix E &bull; Data</span>
-        <h4>AP Classroom Progress-Check Tracker</h4>
-        <p>Pre- and post-test scores for all 15 student participants. Individual growth of 32&ndash;50 percentage points.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix F &bull; Depth of Understanding</span>
-        <h4>Conceptual Framework: Metacognition in AP Classrooms</h4>
-        <p>EDF 725: Advanced Qualitative Research. Synthesizes Eisner, Freire, Vygotsky, Flavell, Schon, Hammond, and Zimmerman.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix G &bull; Scholarship</span>
-        <h4>CIEC 700: Technology &amp; Student Metacognition</h4>
-        <p>Paper examining smart learning environments, clicker technology, learning logs, flipped classrooms, and AI tools through a metacognitive lens.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix H &bull; Scholarship</span>
-        <h4>Action Research Final Presentation</h4>
-        <p>Slide deck presenting research question, methods, data, and findings from the Dunbar High School intervention.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix I &bull; Collaboration</span>
-        <h4>SITE Conference: Preparing Educators for AI-Infused Classrooms</h4>
-        <p>National conference panel slide deck. March 2025. Co-presented with Geddis, Osterfeld, Clemmins, and Rich.</p>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix J &bull; Required Scholarship</span>
-        <h4>NSSA Conference: Teacher Use of Metacognitive Practices in AP Classrooms</h4>
-        <p>Co-authored and co-presented with Dr. Ron Childress. Hot Springs, AR. October 2025. Program documentation included.</p>
-      </div>
+      <div class="artifact-card"><span class="tag">Appendix A &bull; Research</span><h4>Pilot Study: Teacher Metacognitive Practices in Advanced Academic Courses</h4><p>EDF 625: Qualitative Research. Full paper including interview protocol, codebook, and thematic analysis. Phenomenological design across Title I and higher-SES AP settings.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix B &bull; Research</span><h4>Action Research Plan: Collaborative AP Classroom Use</h4><p>Three-week intervention at Dunbar High School, FWISD. Includes research question, participant information, data collection timeline, and validity procedures.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix C &bull; Research Instrument</span><h4>Engagement and Metacognition Observation Checklist</h4><p>Structured one-page checklist used during all three action research classroom observations. Indicators for collaboration, peer questioning, reasoning, and metacognitive prompting.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix D &bull; Research Instrument</span><h4>Student Exit Ticket: Metacognition</h4><p>Three-question protocol on strategy use, impact of collaboration, and next steps. Administered after each collaborative lesson across the intervention.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix E &bull; Data</span><h4>AP Classroom Progress-Check Tracker</h4><p>Pre and post test scores for all 15 student participants. Individual growth of 32 to 50 percentage points. 100% post-intervention completion rate.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix F &bull; Depth of Understanding</span><h4>Conceptual Framework: Metacognition in AP Classrooms</h4><p>EDF 725: Advanced Qualitative Research, Dr. Yuan. Synthesizes Eisner, Freire, Vygotsky, Flavell, Schon, Hammond, Ladson-Billings, and Zimmerman into an original theoretical model.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix G &bull; Reflection</span><h4>Positionality Reflection: Identity and Pedagogical Outlook</h4><p>CI 704, Dr. Yuan. Examines how background, identity, and professional experience shape research lens and pedagogical commitments. Grounded in Crenshaw, Freire, hooks, and Paris.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix H &bull; Depth of Understanding</span><h4>Annotated Bibliographies 1, 2, and 3</h4><p>C-701, Dr. Sochor. Sustained literature review on AP equity, dual enrollment, gifted education, first-generation students, and Black girls' postsecondary outcomes.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix I &bull; Scholarship</span><h4>CIEC 700: Technology and Student Metacognition</h4><p>Examined smart learning environments, clicker technology, learning logs, flipped classrooms, and AI tools through a metacognitive lens. First extended scholarly argument in the program.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix J &bull; Communication</span><h4>Action Research Final Presentation</h4><p>Slide deck presenting research question, methods, data, and findings from the Dunbar High School intervention. Includes animated pre/post data visualization.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix K &bull; Collaboration</span><h4>SITE Conference: Preparing Educators for AI-Infused Classrooms</h4><p>March 2025. National conference panel co-presented with Geddis, Osterfeld, Clemmins, and Rich. Argued AI increases cognitive demand and requires intentional metacognitive scaffolding.</p></div>
+      <div class="artifact-card"><span class="tag">Appendix L &bull; Required Scholarship</span><h4>NSSA Conference: Teacher Use of Metacognitive Practices in AP Classrooms</h4><p>October 2025. Co-authored and co-presented with Dr. Ron Childress. Hot Springs, AR. Meets the required scholarly activity for the portfolio. Program documentation included.</p></div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-name">Melissa Alexander-Blythe</div>
-  <p>Doctoral Portfolio &bull; Marshall University &bull; Department of Curriculum &amp; Instruction &bull; Spring 2026</p>
-  <a class="download-btn" href="#" onclick="alert('Replace this link with your portfolio paper PDF once uploaded.')">
-    &#8659; Download Portfolio Paper (PDF)
-  </a>
+  <p>Doctoral Portfolio &bull; Marshall University &bull; Department of Curriculum and Instruction &bull; Spring 2026</p>
+  <a class="download-btn" href="#" onclick="alert('Replace this link with your portfolio paper PDF once uploaded to Google Drive.')">&#8659; Download Portfolio Paper (PDF)</a>
 </footer>
 
 <script>
-// Build chart from actual data
 const students = [
-  {id:1, pre:47, post:82},
-  {id:2, pre:45, post:95},
-  {id:3, pre:44, post:78},
-  {id:4, pre:39, post:80},
-  {id:5, pre:42, post:76},
-  {id:6, pre:39, post:88},
-  {id:7, pre:40, post:74},
-  {id:8, pre:41, post:81},
-  {id:9, pre:43, post:79},
-  {id:10,pre:40, post:72},
-  {id:11,pre:37, post:85},
-  {id:12,pre:30, post:77},
-  {id:13,pre:38, post:83},
-  {id:14,pre:37, post:75},
-  {id:15,pre:38, post:75},
+  {id:1,pre:47,post:82},{id:2,pre:45,post:95},{id:3,pre:44,post:78},
+  {id:4,pre:39,post:80},{id:5,pre:42,post:76},{id:6,pre:39,post:88},
+  {id:7,pre:40,post:74},{id:8,pre:41,post:81},{id:9,pre:43,post:79},
+  {id:10,pre:40,post:72},{id:11,pre:37,post:85},{id:12,pre:30,post:77},
+  {id:13,pre:38,post:83},{id:14,pre:37,post:75},{id:15,pre:38,post:75}
 ];
 
-const maxVal = 100;
 const chartBars = document.getElementById('chartBars');
-
 students.forEach(s => {
   const group = document.createElement('div');
   group.className = 'bar-group';
-
   const wrap = document.createElement('div');
   wrap.className = 'bar-wrap';
 
   const preBar = document.createElement('div');
   preBar.className = 'bar pre';
-  preBar.style.height = (s.pre / maxVal * 100) + '%';
-  preBar.title = `Student ${s.id} Pre: ${s.pre}%`;
+  preBar.style.height = s.pre + '%';
+  preBar.title = 'Student ' + s.id + ' Pre: ' + s.pre + '%';
   const preVal = document.createElement('span');
   preVal.className = 'bar-val';
   preVal.textContent = s.pre + '%';
@@ -1009,8 +463,8 @@ students.forEach(s => {
 
   const postBar = document.createElement('div');
   postBar.className = 'bar post';
-  postBar.style.height = (s.post / maxVal * 100) + '%';
-  postBar.title = `Student ${s.id} Post: ${s.post}%`;
+  postBar.style.height = s.post + '%';
+  postBar.title = 'Student ' + s.id + ' Post: ' + s.post + '%';
   const postVal = document.createElement('span');
   postVal.className = 'bar-val';
   postVal.textContent = s.post + '%';
@@ -1028,14 +482,13 @@ students.forEach(s => {
   chartBars.appendChild(group);
 });
 
-// Animate bars in on scroll
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.querySelectorAll('.bar').forEach((bar, i) => {
         const h = bar.style.height;
         bar.style.height = '0';
-        bar.style.transition = `height 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.04}s`;
+        bar.style.transition = 'height 0.6s cubic-bezier(0.34,1.56,0.64,1) ' + (i * 0.04) + 's';
         setTimeout(() => bar.style.height = h, 50);
       });
       observer.unobserve(e.target);
