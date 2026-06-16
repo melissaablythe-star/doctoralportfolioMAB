@@ -146,7 +146,6 @@
     display: inline-block;
     margin-bottom: 0.4rem;
   }
-  }
   .hero-scroll {
     margin-top: auto;
     padding-top: 3rem;
@@ -469,6 +468,8 @@
     border-radius: 8px;
     padding: 1.5rem;
     transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
   }
   .artifact-card:hover {
     border-color: rgba(201,149,42,0.5);
@@ -495,6 +496,32 @@
     color: rgba(255,255,255,0.55);
     margin: 0;
     line-height: 1.5;
+    flex: 1;
+  }
+  .artifact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(201,149,42,0.15);
+    transition: color 0.2s, border-color 0.2s;
+    align-self: flex-start;
+  }
+  .artifact-link:hover {
+    color: var(--warm-white);
+    border-top-color: rgba(201,149,42,0.4);
+  }
+  .artifact-link .arrow {
+    font-size: 0.9rem;
+    line-height: 1;
   }
 
   /* ── CONFERENCE BADGES ───────────────────────────── */
@@ -930,71 +957,85 @@
         <span class="tag">Appendix A &bull; Research</span>
         <h4>Pilot Study: Teacher Metacognitive Practices in Advanced Academic Courses</h4>
         <p>EDF 625: Qualitative Research. Full paper, interview protocol, codebook, and thematic analysis.</p>
+        <a class="artifact-link" href="appendix-a-pilot-study.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix B &bull; Research</span>
         <h4>Action Research Plan: Collaborative AP Classroom Use</h4>
         <p>Research question, participant information, three-week data collection timeline, and validity procedures. Dunbar High School, FWISD.</p>
+        <a class="artifact-link" href="appendix-b-action-research-plan.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix C &bull; Research Instrument</span>
         <h4>Engagement &amp; Metacognition Observation Checklist</h4>
         <p>Structured one-page checklist used during all three classroom observation sessions.</p>
+        <a class="artifact-link" href="appendix-c-observation-checklist.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix D &bull; Research Instrument</span>
         <h4>Student Exit Ticket: Metacognition</h4>
         <p>Three-question protocol on strategy use, impact of collaboration, and next steps. Administered after each collaborative lesson.</p>
+        <a class="artifact-link" href="appendix-d-student-exit-ticket.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix E &bull; Data</span>
         <h4>AP Classroom Progress-Check Tracker</h4>
         <p>Pre- and post-test scores for all 15 student participants. Individual growth of 32 to 50 percentage points.</p>
+        <a class="artifact-link" href="appendix-e-progress-check-tracker.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix F &bull; Depth of Understanding</span>
         <h4>Conceptual Framework: Metacognition in AP Classrooms</h4>
         <p>EDF 725: Advanced Qualitative Research. Synthesizes Sch&#xF6;n, Vygotsky, Flavell, Ladson-Billings, Hammond, and Zimmerman into an original model positioning structured reflection as a metacognitive tool for equity in AP classrooms.</p>
+        <a class="artifact-link" href="appendix-f-conceptual-framework.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix G &bull; Reflection</span>
         <h4>Positionality Reflection: Identity and Pedagogical Outlook</h4>
         <p>CI 704: Examines how background, identity, and professional experience shape research lens and pedagogical commitments. Grounded in Crenshaw, Freire, hooks, Paris, and Ladson-Billings.</p>
+        <a class="artifact-link" href="appendix-g-positionality-reflection.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix H &bull; Scholarship</span>
         <h4>Annotated Bibliographies 1, 2, and 3</h4>
         <p>C-701: Sustained literature review on AP equity, dual enrollment, gifted education, first-generation college students, and Black girls' postsecondary outcomes.</p>
+        <a class="artifact-link" href="appendix-h-annotated-bibliographies.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix I &bull; Scholarship</span>
         <h4>CIEC 700: Technology &amp; Student Metacognition</h4>
         <p>Paper examining smart learning environments, clicker technology, learning logs, flipped classrooms, and AI tools through a metacognitive lens.</p>
+        <a class="artifact-link" href="appendix-i-ciec700-tech-metacognition.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix J &bull; Scholarship</span>
         <h4>Action Research Final Presentation</h4>
         <p>Slide deck presenting research question, methods, data, and findings from the Dunbar High School intervention.</p>
+        <a class="artifact-link" href="appendix-j-action-research-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix K &bull; Collaboration</span>
         <h4>SITE Conference: Preparing Educators for AI-Infused Classrooms</h4>
         <p>National conference panel slide deck. March 2025. Co-presented with Geddis, Osterfeld, Clemmins, and Rich.</p>
+        <a class="artifact-link" href="appendix-k-site-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix L &bull; Required Scholarship</span>
         <h4>NSSA Conference: Teacher Use of Metacognitive Practices in AP Classrooms</h4>
         <p>Co-authored and co-presented with Dr. Ron Childress. Presented virtually to the National Social Science Association Fall Conference in Hot Springs, Arkansas, October 2025. Program documentation included.</p>
+        <a class="artifact-link" href="appendix-l-nssa-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix M &bull; Depth of Understanding</span>
         <h4>Teaching Philosophy: Equity and Excellence in Advanced Academics</h4>
         <p>CI 704: Articulates pedagogical commitments to equitable access and instructional quality in advanced academic contexts. Grounded in Freire and hooks. The foundational articulation of the equity and metacognition argument running through the portfolio.</p>
+        <a class="artifact-link" href="appendix-m-teaching-philosophy.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
       <div class="artifact-card">
         <span class="tag">Appendix N &bull; Depth of Understanding</span>
         <h4>CI 702 Curriculum Theory Paper: Curriculum as Art and Empowerment</h4>
         <p>Synthesizes Eisner's aesthetic theory of curriculum with Freire's critical pedagogy into a personal theory of curriculum positioning advanced academics as both an artistic and political space.</p>
+        <a class="artifact-link" href="appendix-n-ci702-curriculum-theory.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
       </div>
     </div>
   </div>
@@ -1004,8 +1045,8 @@
 <footer>
   <div class="footer-name">Melissa Alexander-Blythe</div>
   <p>Doctoral Portfolio &bull; Marshall University &bull; Department of Curriculum &amp; Instruction &bull; Spring 2026</p>
-  <a class="download-btn" href="#" onclick="alert('Replace this link with your portfolio paper PDF once uploaded.')">
-    &#8659; Download Portfolio Paper (PDF)
+  <a class="download-btn" href="Portfolio_Artifacts_Final.pdf" target="_blank" rel="noopener">
+    &#8659; Download All Artifacts (PDF)
   </a>
 </footer>
 
