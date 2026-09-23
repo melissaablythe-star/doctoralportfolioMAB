@@ -133,54 +133,34 @@
   }
   .hero-meta {
     color: rgba(255,255,255,0.55);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-weight: 300;
-    line-height: 2.1;
+    line-height: 2;
     opacity: 0;
     animation: fadeUp 0.9s ease 0.75s forwards;
   }
-  .hero-meta strong {
-    color: rgba(255,255,255,0.9);
-    font-weight: 500;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-bottom: 0.4rem;
-  }
+  .hero-meta strong { color: rgba(255,255,255,0.85); font-weight: 400; }
   .hero-scroll {
-    margin-top: auto;
-    padding-top: 3rem;
+    position: absolute; bottom: 2.5rem;
+    left: 50%; transform: translateX(-50%);
     color: var(--gold);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     opacity: 0;
     animation: fadeUp 1s ease 1.2s forwards;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    cursor: pointer;
-    background: none; border: none;
-    font-family: inherit;
-  }
-  .hero-scroll-label {
-    letter-spacing: 0.15em;
-    text-align: center;
   }
   .hero-scroll::after {
     content: '';
-    width: 20px; height: 40px;
-    background-image: linear-gradient(to bottom, var(--gold), transparent);
-    background-size: 1px 100%;
-    background-position: center top;
-    background-repeat: no-repeat;
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollPulse 1.8s ease-in-out infinite;
-    transform-origin: center top;
   }
   @keyframes scrollPulse { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.4;transform:scaleY(0.7)} }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUpCenter {
-    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
 
   /* ── SECTION SHELL ───────────────────────────────── */
@@ -468,8 +448,9 @@
     border-radius: 8px;
     padding: 1.5rem;
     transition: border-color 0.2s, background 0.2s;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
   .artifact-card:hover {
     border-color: rgba(201,149,42,0.5);
@@ -496,32 +477,6 @@
     color: rgba(255,255,255,0.55);
     margin: 0;
     line-height: 1.5;
-    flex: 1;
-  }
-  .artifact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 1rem;
-    color: var(--gold-light);
-    text-decoration: none;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(201,149,42,0.15);
-    transition: color 0.2s, border-color 0.2s;
-    align-self: flex-start;
-  }
-  .artifact-link:hover {
-    color: var(--warm-white);
-    border-top-color: rgba(201,149,42,0.4);
-  }
-  .artifact-link .arrow {
-    font-size: 0.9rem;
-    line-height: 1;
   }
 
   /* ── CONFERENCE BADGES ───────────────────────────── */
@@ -700,9 +655,9 @@
   <div class="hero-meta">
     <strong>Melissa Alexander-Blythe</strong><br>
     Chair: Dr. Ron Childress<br>
-    Spring 2026
+    Fall 2026
   </div>
-  <div class="hero-scroll" role="button" tabindex="0" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('intro').scrollIntoView({behavior:'smooth'});}"><span class="hero-scroll-label">Explore</span></div>
+  <div class="hero-scroll">Explore</div>
 </section>
 
 <!-- INTRO -->
@@ -725,7 +680,7 @@
     <a class="rubric-card" href="#depth">
       <span class="num">02</span>
       <h3>Depth of Understanding</h3>
-      <p>Theoretical synthesis across Eisner, Freire, Vygotsky, Flavell, Sch&#xF6;n, and Hammond.</p>
+      <p>Theoretical synthesis across Eisner, Freire, Vygotsky, Flavell, Sch&ouml;n, Hammond, and Zimmerman.</p>
     </a>
     <a class="rubric-card" href="#reflection">
       <span class="num">03</span>
@@ -740,7 +695,7 @@
     <a class="rubric-card" href="#research">
       <span class="num">05</span>
       <h3>Research</h3>
-      <p>Pilot study + action research with documented student growth of 32 to 50 points.</p>
+      <p>Pilot study + action research with documented student growth of 32&ndash;50 points.</p>
     </a>
     <a class="rubric-card" href="#artifacts">
       <span class="num">06</span>
@@ -757,13 +712,13 @@
   <div class="dark-section-inner">
     <div class="section-eyebrow">Rubric Element 01</div>
     <h2>Collaboration</h2>
-    <p>Collaboration has always been central to my professional role, but this program fundamentally changed how I understand and engage in collaborative work. Prior to entering the program, collaboration often functioned as coordination. Through this program, collaboration became a process of shared inquiry: questioning assumptions, analyzing practice, and co-constructing new understandings rather than simply dividing tasks.</p>
+    <p>Collaboration has always been central to my professional role, but this program fundamentally changed how I understand and engage in collaborative work. Prior to entering the program, collaboration often functioned as coordination. Through this program, collaboration became a process of shared inquiry that questions assumptions, analyzes practice, and co-constructs new understandings rather than simply dividing tasks.</p>
 
     <div class="conf-badges">
       <div class="conf-badge">
         <div class="conf-name">NSSA Fall Conference</div>
         <div class="conf-paper">"Teacher Use of Metacognitive Practices in AP Classrooms"</div>
-        <div class="conf-meta">Virtual presentation &bull; Hot Springs, Arkansas &bull; October 2025 &bull; w/ Dr. Ron Childress</div>
+        <div class="conf-meta">Hot Springs, AR &bull; October 2025 &bull; w/ Dr. Ron Childress</div>
       </div>
       <div class="conf-badge">
         <div class="conf-name">SITE Annual Conference</div>
@@ -798,7 +753,7 @@
   <p>Eisner's (2002) framing of curriculum as an intellectual and aesthetic encounter disrupted my prior view of curriculum as content to be covered. Freire's (1970) pedagogy of critical consciousness raised questions about whose knowledge is centered and how power operates within advanced academic spaces.</p>
 
   <h3>Cognitive &amp; Learning Theory</h3>
-  <p>Vygotsky's (1978) concept of scaffolded social interaction explained how higher-order reasoning develops through guided participation rather than spontaneous mastery. Flavell's (1979) distinction between metacognitive <em>knowledge</em> and metacognitive <em>regulation</em> gave me a framework for analyzing classroom observations. Sch&#xF6;n's (1983) reflection-in-action brought the teacher's role into focus.</p>
+  <p>Vygotsky's (1978) concept of scaffolded social interaction explained how higher-order reasoning develops through guided participation rather than spontaneous mastery. Flavell's (1979) distinction between metacognitive <em>knowledge</em> and metacognitive <em>regulation</em> gave me a framework for analyzing classroom observations. Sch&ouml;n's (1983) reflection-in-action brought the teacher's role into focus.</p>
 
   <div class="pull-quote">
     <p>"When teachers make their own thinking visible in real time, modeling how they approach complexity, revise, and reason, they create the conditions for students to develop those same capacities."</p>
@@ -809,7 +764,7 @@
 
   <div class="summary-box">
     <span class="label">Section Summary: Depth of Understanding</span>
-    <p>My depth of understanding is demonstrated through sustained, synthesized engagement with curriculum theory, learning theory, and the emerging intersection of AI and cognition. The conceptual framework integrates Eisner, Freire, Vygotsky, Flavell, Sch&#xF6;n, Hammond, and Zimmerman into a coherent model grounded in the specific inequities of AP instruction in underserved settings.</p>
+    <p>My depth of understanding is demonstrated through sustained, synthesized engagement with curriculum theory, learning theory, and the emerging intersection of AI and cognition. The conceptual framework integrates Flavell, Vygotsky, Sch&ouml;n, Ladson-Billings, Hammond, and Zimmerman into a coherent model grounded in the specific inequities of AP instruction in underserved settings.</p>
   </div>
 </section>
 
@@ -820,7 +775,7 @@
   <div class="dark-section-inner">
     <div class="section-eyebrow">Rubric Element 03</div>
     <h2>Reflection</h2>
-    <p>The connection between doctoral work and professional growth has been the most personal dimension of this program for me, and at times the most uncomfortable. Examining the assumptions I walked in with was not pleasant work, but it is the work that produced actual change.</p>
+    <p>The portfolio rubric asks for deep reflection that demonstrates a clear connection between doctoral program experiences and professional growth. That connection has been the most personal and at times the most uncomfortable dimension of this program.</p>
 
     <h3>Positionality</h3>
     <p>My Positionality Reflection in CI 704 was the first assignment that required me to examine the roots of my beliefs rather than simply act on them. Writing about my background as the first college graduate in my family, navigating professional spaces where I was frequently underestimated, and carrying a fierce urgency about outcomes for underserved students: all of that shaped how I led long before I could articulate it. The reflection revealed that this urgency, while rooted in genuine commitment, sometimes narrowed my patience for the pace of inquiry.</p>
@@ -829,11 +784,11 @@
     <p>Learning to listen to interview data without imposing my framework before the participant spoke was harder than I expected. Early drafts of my pilot study interview protocol revealed that I had written questions that assumed my conclusion. Revising those questions taught me that reflexivity is not a section of a research paper. It is a discipline that has to be practiced throughout the entire inquiry process.</p>
 
     <div class="pull-quote">
-      <p>"The most meaningful learning happens when we examine our practice while we are still inside it." (Sch&#xF6;n, 1983)</p>
+      <p>Sch&ouml;n's (1983) reflection-in-action names what this felt like: the most useful learning happened while I was still inside the experience, not after processing it from a safe distance.</p>
     </div>
 
     <h3>Learning in Action</h3>
-    <p>The action research cycle produced a different kind of reflection. Working in a classroom rather than analyzing one from the outside required me to hold my theoretical commitments lightly enough to respond to what was actually happening. Watching the teacher shift, not because I told him to but because he observed his students doing things he had not thought they could do, was one of the clearest moments of this entire program.</p>
+    <p>The action research cycle produced a different kind of reflection. Working in a classroom rather than analyzing one from the outside required me to hold my theoretical commitments lightly enough to respond to what was actually happening. Watching the teacher shift, not because I told him to, but because he saw his students doing things he had not thought they could do, was one of the clearest moments of this entire program.</p>
 
     <div class="summary-box">
       <span class="label">Section Summary: Reflection</span>
@@ -846,7 +801,7 @@
 <section id="scholarship">
   <div class="section-eyebrow">Rubric Element 04</div>
   <h2>Scholarship &amp; Communication</h2>
-  <p>The portfolio requirement specifies at least one co-authored conference presentation or publication in collaboration with a faculty member. My NSSA conference presentation meets this requirement directly: I co-authored and co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress at the National Social Science Association Fall Conference in October 2025, presenting virtually to the conference held in Hot Springs, Arkansas.</p>
+  <p>The portfolio requirement specifies at least one co-authored conference presentation or publication in collaboration with a faculty member. My NSSA conference presentation meets this requirement directly: I co-authored and co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress at the National Social Science Association Fall Conference in Hot Springs, Arkansas, October 2025.</p>
 
   <div class="timeline">
     <div class="timeline-item">
@@ -862,17 +817,17 @@
     <div class="timeline-item">
       <span class="tl-date">2024</span>
       <h4>EDF 725 Conceptual Framework</h4>
-      <p>"Conceptual Framework for Investigating Metacognition in AP Classrooms." Synthesized Eisner, Freire, Vygotsky, Flavell, Sch&#xF6;n, Ladson-Billings, Hammond, and Zimmerman.</p>
+      <p>"Conceptual Framework for Investigating Metacognition in AP Classrooms." Synthesized Flavell, Vygotsky, Sch&ouml;n, Ladson-Billings, Hammond, Zimmerman, and Tanner.</p>
     </div>
     <div class="timeline-item">
       <span class="tl-date">March 2025</span>
       <h4>SITE Annual Conference</h4>
-      <p>"Preparing Educators for AI-Infused Classrooms." National panel with four doctoral colleagues. Argued AI increases rather than reduces cognitive demand and must be positioned as a metacognitive scaffold.</p>
+      <p>"Preparing Educators for AI-Infused Classrooms." National panel with four doctoral colleagues. Panel on preparing educators for AI-infused classrooms, covering system-level gaps, classroom realities, and the increased demand for metacognition that AI places on students.</p>
     </div>
     <div class="timeline-item">
       <span class="tl-date">October 2025</span>
       <h4>NSSA Fall Conference: Required Scholarship Element</h4>
-      <p>Co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress. Presented virtually to the conference in Hot Springs, Arkansas. Met the portfolio's required scholarly activity.</p>
+      <p>Co-presented "Teacher Use of Metacognitive Practices in AP Classrooms" with Dr. Ron Childress. Hot Springs, Arkansas. Met the portfolio's required scholarly activity.</p>
     </div>
     <div class="timeline-item">
       <span class="tl-date">2025</span>
@@ -897,7 +852,7 @@
     <p>My research across this program demonstrates the utilization of the research process through a variety of projects that is highly organized and thorough, with research incorporated outside of the classroom.</p>
 
     <h3>Pilot Study: Teacher Perception &amp; Metacognition</h3>
-    <p>Conducted in EDF 625 using a phenomenological design with semi-structured interviews and classroom observations across Title I and higher-SES AP settings. Thematic coding following Salda&#xF1;a (2011) revealed that teachers in higher-SES settings more frequently described students as independent and capable of abstraction. Teachers in Title I contexts more often used language like "building foundations" and "being realistic about what they can handle."</p>
+    <p>Conducted in EDF 625 using a phenomenological design, with interviews and classroom observations of two AP teachers during summer AP bootcamps at two FWISD campuses. Thematic coding following Saldana (2011) surfaced a clear contrast between the two classrooms. One teacher expected rigorous, reflective work and ran Socratic seminars and reflective journaling. The other spoke of his students as capable but facing challenges, and his students wrote short, surface-level reflections.</p>
     <p>The significance was not that scaffolding is harmful. The problem was that scaffolding frequently <em>replaced</em> metacognitive opportunity rather than building toward it.</p>
 
     <h3>Action Research: Dunbar High School, FWISD</h3>
@@ -923,22 +878,22 @@
           <span class="stat-label">Average post-test score</span>
         </div>
         <div class="chart-stat">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Completion rate post-intervention</span>
+          <span class="stat-num">+40</span>
+          <span class="stat-label">Average growth in percentage points</span>
         </div>
       </div>
     </div>
 
     <h3>Key Findings</h3>
-    <p>Individual student gains ranged from 32 to 50 percentage points. Every student completed the post-assessment, a shift from baseline when several left questions unanswered. Exit ticket responses evolved from brief, unspecific answers to strategy-based explanations identifying what helped, why, and what they would change next time. The teacher documented increasing intentionality in his questioning, moving from confirming correct answers to asking students to justify their reasoning.</p>
+    <p>Individual student gains ranged from 32 to 50 percentage points. Every student completed the post-assessment. Exit ticket responses evolved from brief, unspecific answers to strategy-based explanations identifying what helped, why, and what they would change next time. The teacher documented increasing intentionality in his questioning, moving from confirming correct answers to asking students to justify their reasoning.</p>
 
     <div class="pull-quote">
-      <p>"The most significant instructional shift was the use of scaffolding to support engagement with purpose, not to reduce cognitive demand but to build students' capacity to manage it independently."</p>
+      <p>"The most significant instructional shift was the use of scaffolding to support engagement with purpose, not to reduce cognitive demand, but to build students' capacity to manage it independently."</p>
     </div>
 
     <div class="summary-box">
       <span class="label">Section Summary: Research</span>
-      <p>Two original research studies conducted outside of any single course requirement. The pilot study produced qualitative findings on teacher perception and metacognitive practice across SES contexts. The action research documented measurable student growth through a theoretically grounded intervention. Both are organized, thorough, and directly inform the dissertation ahead.</p>
+      <p>Two original research studies, each designed and carried out from research question through findings. The pilot study produced qualitative findings on teacher perception and metacognitive practice across SES contexts. The action research documented measurable student growth through a theoretically grounded intervention. Both are organized, thorough, and directly inform the dissertation ahead.</p>
     </div>
   </div>
 </div>
@@ -953,90 +908,81 @@
 <div class="dark-section" style="padding-top: 0;">
   <div class="dark-section-inner">
     <div class="artifact-grid">
-      <div class="artifact-card">
+      <a class="artifact-card" href="Appendix_A.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix A &bull; Research</span>
         <h4>Pilot Study: Teacher Metacognitive Practices in Advanced Academic Courses</h4>
         <p>EDF 625: Qualitative Research. Full paper, interview protocol, codebook, and thematic analysis.</p>
-        <a class="artifact-link" href="appendix-a-pilot-study.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+      </a>
+      <a class="artifact-card" href="Appendix_B.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix B &bull; Research</span>
         <h4>Action Research Plan: Collaborative AP Classroom Use</h4>
         <p>Research question, participant information, three-week data collection timeline, and validity procedures. Dunbar High School, FWISD.</p>
-        <a class="artifact-link" href="appendix-b-action-research-plan.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+      </a>
+      <a class="artifact-card" href="Appendix_C.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix C &bull; Research Instrument</span>
         <h4>Engagement &amp; Metacognition Observation Checklist</h4>
         <p>Structured one-page checklist used during all three classroom observation sessions.</p>
-        <a class="artifact-link" href="appendix-c-observation-checklist.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+      </a>
+      <a class="artifact-card" href="Appendix_D.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix D &bull; Research Instrument</span>
         <h4>Student Exit Ticket: Metacognition</h4>
         <p>Three-question protocol on strategy use, impact of collaboration, and next steps. Administered after each collaborative lesson.</p>
-        <a class="artifact-link" href="appendix-d-student-exit-ticket.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+      </a>
+      <a class="artifact-card" href="Appendix_E.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix E &bull; Data</span>
         <h4>AP Classroom Progress-Check Tracker</h4>
-        <p>Pre- and post-test scores for all 15 student participants. Individual growth of 32 to 50 percentage points.</p>
-        <a class="artifact-link" href="appendix-e-progress-check-tracker.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+        <p>Pre- and post-test scores for all 15 student participants. Individual growth of 32&ndash;50 percentage points.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_F.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix F &bull; Depth of Understanding</span>
         <h4>Conceptual Framework: Metacognition in AP Classrooms</h4>
-        <p>EDF 725: Advanced Qualitative Research. Synthesizes Sch&#xF6;n, Vygotsky, Flavell, Ladson-Billings, Hammond, and Zimmerman into an original model positioning structured reflection as a metacognitive tool for equity in AP classrooms.</p>
-        <a class="artifact-link" href="appendix-f-conceptual-framework.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+        <p>EDF 725. Synthesizes Flavell, Vygotsky, Sch&ouml;n, Ladson-Billings, Hammond, Zimmerman, and Tanner into a framework for studying reflection in AP classrooms.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_G.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix G &bull; Reflection</span>
         <h4>Positionality Reflection: Identity and Pedagogical Outlook</h4>
-        <p>CI 704: Examines how background, identity, and professional experience shape research lens and pedagogical commitments. Grounded in Crenshaw, Freire, hooks, Paris, and Ladson-Billings.</p>
-        <a class="artifact-link" href="appendix-g-positionality-reflection.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix H &bull; Scholarship</span>
+        <p>CI 704. Examines first-generation identity, professional underestimation, and urgency through Crenshaw, Freire, hooks, Paris, and Ladson-Billings.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_H.pdf" target="_blank" rel="noopener">
+        <span class="tag">Appendix H &bull; Depth of Understanding</span>
         <h4>Annotated Bibliographies 1, 2, and 3</h4>
-        <p>C-701: Sustained literature review on AP equity, dual enrollment, gifted education, first-generation college students, and Black girls' postsecondary outcomes.</p>
-        <a class="artifact-link" href="appendix-h-annotated-bibliographies.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+        <p>C-701. Early literature engagement on AP access, equity, and achievement in advanced academic programs.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_I.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix I &bull; Scholarship</span>
         <h4>CIEC 700: Technology &amp; Student Metacognition</h4>
         <p>Paper examining smart learning environments, clicker technology, learning logs, flipped classrooms, and AI tools through a metacognitive lens.</p>
-        <a class="artifact-link" href="appendix-i-ciec700-tech-metacognition.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix J &bull; Scholarship</span>
+      </a>
+      <a class="artifact-card" href="Appendix_J.pdf" target="_blank" rel="noopener">
+        <span class="tag">Appendix J &bull; Research</span>
         <h4>Action Research Final Presentation</h4>
         <p>Slide deck presenting research question, methods, data, and findings from the Dunbar High School intervention.</p>
-        <a class="artifact-link" href="appendix-j-action-research-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+      </a>
+      <a class="artifact-card" href="Appendix_K.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix K &bull; Collaboration</span>
         <h4>SITE Conference: Preparing Educators for AI-Infused Classrooms</h4>
-        <p>National conference panel slide deck. March 2025. Co-presented with Geddis, Osterfeld, Clemmins, and Rich.</p>
-        <a class="artifact-link" href="appendix-k-site-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+        <p>National conference panel slide deck. March 2025. Co-presented with Geddis, Osterfeld, Clemins, and Rich.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_L.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix L &bull; Required Scholarship</span>
         <h4>NSSA Conference: Teacher Use of Metacognitive Practices in AP Classrooms</h4>
-        <p>Co-authored and co-presented with Dr. Ron Childress. Presented virtually to the National Social Science Association Fall Conference in Hot Springs, Arkansas, October 2025. Program documentation included.</p>
-        <a class="artifact-link" href="appendix-l-nssa-presentation.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
-        <span class="tag">Appendix M &bull; Depth of Understanding</span>
-        <h4>Teaching Philosophy: Equity and Excellence in Advanced Academics</h4>
-        <p>CI 704: Articulates pedagogical commitments to equitable access and instructional quality in advanced academic contexts. Grounded in Freire and hooks. The foundational articulation of the equity and metacognition argument running through the portfolio.</p>
-        <a class="artifact-link" href="appendix-m-teaching-philosophy.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
-      <div class="artifact-card">
+        <p>Co-authored and co-presented with Dr. Ron Childress. Hot Springs, AR. October 2025.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_M.pdf" target="_blank" rel="noopener">
+        <span class="tag">Appendix M &bull; Reflection</span>
+        <h4>Teaching Philosophy: Fostering Equity and Excellence in Advanced Academics</h4>
+        <p>CI 704. Articulates the equity and metacognition argument that runs through the pilot study, conceptual framework, and dissertation.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_N.pdf" target="_blank" rel="noopener">
         <span class="tag">Appendix N &bull; Depth of Understanding</span>
-        <h4>CI 702 Curriculum Theory Paper: Curriculum as Art and Empowerment</h4>
-        <p>Synthesizes Eisner's aesthetic theory of curriculum with Freire's critical pedagogy into a personal theory of curriculum positioning advanced academics as both an artistic and political space.</p>
-        <a class="artifact-link" href="appendix-n-ci702-curriculum-theory.pdf" target="_blank" rel="noopener"><span class="arrow">&#8659;</span> Download PDF</a>
-      </div>
+        <h4>CI 702: Curriculum as Art and Empowerment</h4>
+        <p>Integrates Eisner's aesthetic theory of curriculum with Freire's critical pedagogy into a personal theory of curriculum for advanced academics.</p>
+      </a>
+      <a class="artifact-card" href="Appendix_O.pdf" target="_blank" rel="noopener">
+        <span class="tag">Appendix O &bull; Collaboration</span>
+        <h4>Graduate-Level AI in Education Course Modules</h4>
+        <p>Module outlines on Natural Language Processing in education and student use of AI in learning, developed with faculty for graduate course design.</p>
+      </a>
     </div>
   </div>
 </div>
@@ -1044,9 +990,9 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Melissa Alexander-Blythe</div>
-  <p>Doctoral Portfolio &bull; Marshall University &bull; Department of Curriculum &amp; Instruction &bull; Spring 2026</p>
-  <a class="download-btn" href="Portfolio_Artifacts_Final.pdf" target="_blank" rel="noopener">
-    &#8659; Download All Artifacts (PDF)
+  <p>Doctoral Portfolio &bull; Marshall University &bull; Department of Curriculum &amp; Instruction &bull; Fall 2026</p>
+  <a class="download-btn" href="MAB_Portfolio_Paper.pdf" target="_blank" rel="noopener">
+    &#8659; Download Portfolio Paper (PDF)
   </a>
 </footer>
 
